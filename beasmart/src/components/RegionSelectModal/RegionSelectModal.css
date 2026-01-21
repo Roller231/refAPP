@@ -1,0 +1,93 @@
+.region-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.region-modal__card {
+  padding: 20px;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(212,175,55,0.15),
+    rgba(20,20,20,0.95)
+  );
+  border: 1px solid rgba(212,175,55,0.4);
+  width: 90%;
+  max-width: 340px;
+}
+
+.region-modal__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.region-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+/* 🔥 как leaderboard__item */
+.region-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: var(--bg-glass);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.region-item:hover {
+  background: rgba(30,30,30,0.8);
+}
+
+.region-item--active {
+  background: linear-gradient(
+    135deg,
+    rgba(212,175,55,0.18),
+    rgba(212,175,55,0.06)
+  );
+  border-color: rgba(212,175,55,0.5);
+  box-shadow: 0 0 12px rgba(212,175,55,0.25);
+}
+
+.region-item__check {
+  color: var(--gold-primary);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.region-confirm-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  background: var(--gold-text-gradient);
+  color: #000;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.region-confirm-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
