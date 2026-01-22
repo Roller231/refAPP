@@ -40,13 +40,17 @@ const Leaderboard = ({ lang }) => {
   // 🔥 РАНЖИРОВАНИЕ (пока по дате, потом по очкам)
   const rankedUsers = useMemo(() => {
     return [...filteredUsers]
-      .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+      .sort((a, b) => {
+        const aPoints = Number(a?.balance || 0);
+        const bPoints = Number(b?.balance || 0);
+        return bPoints - aPoints; // по убыванию очков
+      })
       .map((u, index) => ({
         ...u,
         rank: index + 1,
       }));
   }, [filteredUsers]);
-
+  
   const formatPoints = (points) => {
     return points.toLocaleString('ru-RU');
   };
